@@ -1,22 +1,23 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import devops from './Resources/images/devops-gif.gif'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={devops} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          DevOps Testing
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://edureka.co"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn DevOps from Edureka
         </a>
       </header>
     </div>
