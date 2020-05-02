@@ -17,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn DevOps Capstone
+          DevOps Capstone
         </a>
       </header>
     </div>
