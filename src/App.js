@@ -17,7 +17,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn DevOps from Edureka
+          Learn DevOps from Edureka (Online Learning Portal)
         </a>
       </header>
     </div>
