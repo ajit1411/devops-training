@@ -22,7 +22,9 @@
     - name: Pull application updates
       shell: cd devops-training && git pull
       when: p.stat.exists == True
+    - name: Delete old images
+      shell: cd /home/ubuntu/devops-training && docker stop my-devops-container && docker rm my-devops-container && docker rmi my-devops-image
     - name: Build docker image
-      shell: cd /home/ubuntu/devops-training && docker build -t my-devops-image-v2 . 
+      shell: cd /home/ubuntu/devops-training && docker build -t my-devops-image . 
     - name: Run container
-      command: docker run -itd -p 1411:80 --name my-devops-container-v2 my-devops-image-v2
+      command: docker run -itd -p 1411:80 --name my-devops-container my-devops-image
