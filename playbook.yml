@@ -5,20 +5,20 @@
   become_user: root
   tasks:
     - name: Install Git
-      package: name=git state=present
+      package:
+        name: git
+        state: present
     - name: Install Docker
-      package: name=docker.io state=present
-    - name: Get application update
-      stat: /home/ubuntu/devops-training
+      package:
+        name: docker.io
+        state: present
+    - name: Check whether we already have project repo
+      stat:
+        path: /home/ubuntu/devops-training
       register: p
-      when: p.stat.isdir
-      command: git pull https://github.com/ajit1411/devops-training.git
-    - name: Clone Application
-      stat: /home/ubuntu/devops-training
-      register: p
-      when: not p.stat.isdir
-      command: git pull https://github.com/ajit1411/devops-training.git
-    - name: Build image
-      command: docker build -t ajitjadhav1411/devops-training /home/ubuntu/devops-training/dockerfile
-    - name: Deploy application
-      command: docker run -itd -p 1411:80 --name test-devops ajitjadhav1411/devops-training:latest
+    - name: Clone the application
+      command: git clone https://github.com/ajit1411/devops-training.git
+      when: p.stat.exists == False
+    - name: Pull application updates
+      shell: cd devops-training && git pull
+      when: p.stat.exists == True
