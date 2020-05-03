@@ -23,6 +23,6 @@
       shell: cd devops-training && git pull
       when: p.stat.exists == True
     - name: Build docker image
-      shell: docker build -t ajitjadhav1411/my-devops-image devops-training-test .
+      shell: sudo docker build -t ajitjadhav1411/my-devops-image .
     - name: Run container
       shell: docker run -itd -p 1411:80 --name my-devops-container ajitjadhav1411/my-devops-image
